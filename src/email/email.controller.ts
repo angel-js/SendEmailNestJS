@@ -8,6 +8,22 @@ export class EmailController {
   constructor(private readonly mailService: MailerService) {}
 
   @Get('send')
+  async plainTextEmail(
+    @Query('toemail') toemail,
+    @Query('sub') sub,
+    @Query('message') message,
+  ) {
+    console.log('Afuera de la funcion');
+    await this.mailService.sendMail({
+      to: toemail,
+      from: 'emailparaejerciciodenestprueba@gmail.com',
+      subject: sub,
+      text: message,
+    });
+    return 'success';
+  }
+
+  /*   @Get('send')
   async plainTextEmail(@Query('toemail') toemail) {
     console.log('Afuera de la funcion');
     await this.mailService.sendMail({
@@ -17,5 +33,5 @@ export class EmailController {
       text: 'Estimados envio un cordial saludo mediante este instrumento! Mail Automatico :D',
     });
     return 'success';
-  }
+  } */
 }
