@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { EmailModule } from './email/email.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import * as dotenv from 'dotenv';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 dotenv.config();
 
 @Module({
@@ -29,6 +31,9 @@ dotenv.config();
           pass: 'RbXVaGzXFURjKbJHTK',
         },
       }, */
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
     }),
   ],
   controllers: [],

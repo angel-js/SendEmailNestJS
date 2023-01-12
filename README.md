@@ -28,6 +28,11 @@ npm install --save class-validator class-transformer
 npm install --save dotenv
 ```
 
+5. Serve Static
+```
+npm install --save @nestjs/serve-static
+```
+
 ## Run Aplication ⚙️
 Open CMD and search and open the project folder, run:
 
