@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { EmailModule } from './email/email.module';
 import { MailerModule } from '@nestjs-modules/mailer';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 @Module({
   imports: [
@@ -14,9 +16,9 @@ import { MailerModule } from '@nestjs-modules/mailer';
         secure: false,
         auth: {
           // The user is the email that you use it
-          user: 'emailparaejerciciodenestprueba@gmail.com',
+          user: process.env.DB_USER,
           // This password is the password to divice you can activate in Gmail > Setting > Security
-          pass: 'hkaivpnfwykpafxf',
+          pass: process.env.DB_PASS,
         },
       },
       // This code is if you want to use Ethereal Email

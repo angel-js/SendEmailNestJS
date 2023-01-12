@@ -23,6 +23,11 @@ npm install --save @types/nodemailer
 npm install --save class-validator class-transformer
 ```
 
+4. Environment variable
+```
+npm install --save dotenv
+```
+
 ## Run Aplication ⚙️
 Open CMD and search and open the project folder, run:
 
