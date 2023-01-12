@@ -1,8 +1,9 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer/dist';
 //import { CreateEmailDto } from './dto/create-email.dto';
 //import { UpdateEmailDto } from './dto/update-email.dto';
 import { EmailService } from './email.service';
+import { CreateEmailDto } from './dto';
 
 @Controller('email')
 export class EmailController {
@@ -14,6 +15,12 @@ export class EmailController {
     @Query('message') message,
   ) {
     return this.emailService.sendEmail(toemail, sub, message);
+  }
+
+  @Post('send')
+  plainEmail(@Body() createEmailDto: CreateEmailDto) {
+    console.log('Antes de disparar el controller');
+    return this.emailService.sendMail(createEmailDto);
   }
 
   /* @Get('send')
